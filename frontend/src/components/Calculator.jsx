@@ -194,10 +194,10 @@ const Calculator = () => {
           {/* Criterion 2 */}
           <div className="space-y-3">
             <Label className="text-base font-medium">
-              2. High-risk translocation with 1q+ and/or del(1p32)
+              2. High risk translocation
             </Label>
             <p className="text-sm text-gray-600">
-              t(4;14) OR t(14;16) OR t(14;20) co-occurring with 1q+ and/or del(1p32)
+              One of these translocations—t(4;14) or t(14;16) or t(14;20)—co-occurring with +1q and/or del(1p)
             </p>
             <RadioGroup 
               value={formData.translocation_combo} 
