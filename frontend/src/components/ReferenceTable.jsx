@@ -91,7 +91,7 @@ const ReferenceTable = () => {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {hrmm2014Data.map((item, index) => (
+                {hrmm2024Data.map((item, index) => (
                   <TableRow key={index}>
                     <TableCell className="font-medium">
                       <Badge variant="outline" className="text-xs">
