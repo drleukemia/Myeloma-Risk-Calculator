@@ -115,42 +115,86 @@ const Calculator = () => {
               <h3 className="font-semibold text-blue-900 mb-2">HRMM Definition</h3>
               <p className="text-sm text-blue-800">
                 High-Risk Multiple Myeloma (HRMM) is defined by the presence of at least one of four key criteria 
-                based on cytogenetic abnormalities and biomarker levels. This stratification helps guide treatment 
-                decisions and prognosis assessment.
+                based on cytogenetic abnormalities and biomarker levels. This stratification is based on the 
+                International Myeloma Society consensus recommendations and helps guide treatment decisions and prognosis assessment.
               </p>
             </div>
             
-            <div className="grid md:grid-cols-2 gap-4">
-              <div className="space-y-3">
-                <h4 className="font-medium text-gray-900">Risk Criteria:</h4>
-                <ul className="text-sm space-y-2">
-                  <li className="flex items-start gap-2">
-                    <span className="w-2 h-2 bg-red-500 rounded-full mt-1.5 flex-shrink-0"></span>
-                    <span>del(17p) and/or TP53 mutation</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="w-2 h-2 bg-red-500 rounded-full mt-1.5 flex-shrink-0"></span>
-                    <span>t(4;14), t(14;16), or t(14;20) with 1q+ and/or del(1p32)</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="w-2 h-2 bg-red-500 rounded-full mt-1.5 flex-shrink-0"></span>
-                    <span>Monoallelic del(1p32) with 1q+ or biallelic del(1p32)</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="w-2 h-2 bg-red-500 rounded-full mt-1.5 flex-shrink-0"></span>
-                    <span>High β2M (≥5.5 mg/L) with normal creatinine (&lt;1.2 mg/dL)</span>
-                  </li>
-                </ul>
+            <div className="grid lg:grid-cols-2 gap-6">
+              <div className="space-y-4">
+                <h4 className="font-medium text-gray-900">Detailed Risk Criteria:</h4>
+                
+                <div className="space-y-3">
+                  <div className="bg-red-50 p-3 rounded-lg">
+                    <h5 className="font-medium text-red-900 mb-2">1. del(17p) and/or TP53 mutation</h5>
+                    <ul className="text-sm text-red-800 space-y-1">
+                      <li>• Occurs in 5%-10% of patients with NDMM</li>
+                      <li>• CCF ≥20% threshold on CD138-positive cells</li>
+                      <li>• Independent prognostic factor for shorter PFS and OS</li>
+                      <li>• Can be acquired at later stages</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="bg-orange-50 p-3 rounded-lg">
+                    <h5 className="font-medium text-orange-900 mb-2">2. High-risk translocations</h5>
+                    <ul className="text-sm text-orange-800 space-y-1">
+                      <li>• <strong>t(4;14):</strong> 10%-15% of patients, high-risk feature</li>
+                      <li>• <strong>t(14;16):</strong> 2%-5% of patients, worse outcomes</li>
+                      <li>• <strong>t(14;20):</strong> 2% of patients, co-occurs with other CAs</li>
+                      <li>• Must co-occur with +1q and/or del(1p)</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
               
-              <div className="space-y-3">
-                <h4 className="font-medium text-gray-900">Key Points:</h4>
-                <ul className="text-sm space-y-2 text-gray-600">
-                  <li>• CCF ≥20% analyzed on CD138-positive cells</li>
-                  <li>• NGS-based method for mutations</li>
-                  <li>• 1q+ = gain (≥3 copies) or amplification (≥4 copies)</li>
-                  <li>• Any single criterion = High Risk classification</li>
-                </ul>
+              <div className="space-y-4">
+                <h4 className="font-medium text-gray-900">Additional Criteria:</h4>
+                
+                <div className="space-y-3">
+                  <div className="bg-purple-50 p-3 rounded-lg">
+                    <h5 className="font-medium text-purple-900 mb-2">3. del(1p32) patterns</h5>
+                    <ul className="text-sm text-purple-800 space-y-1">
+                      <li>• Monoallelic del(1p32) with +1q co-occurrence</li>
+                      <li>• Biallelic del(1p32) as independent factor</li>
+                      <li>• Occurs in 11% of patients with NDMM</li>
+                      <li>• Significant prognostic impact on PFS and OS</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="bg-green-50 p-3 rounded-lg">
+                    <h5 className="font-medium text-green-900 mb-2">4. High β2M with normal creatinine</h5>
+                    <ul className="text-sm text-green-800 space-y-1">
+                      <li>• β2M ≥5.5 mg/L with creatinine <1.2 mg/dL</li>
+                      <li>• Poor prognosis even without other risk features</li>
+                      <li>• Mixed data on independent prognostic impact</li>
+                      <li>• Must exclude renal dysfunction</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-amber-50 p-4 rounded-lg">
+              <h4 className="font-medium text-amber-900 mb-2">Clinical Studies Evidence:</h4>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <h5 className="text-sm font-medium text-amber-900 mb-2">Key Datasets:</h5>
+                  <ul className="text-xs text-amber-800 space-y-1">
+                    <li>• HORIZON (CoMMpass), ENDURANCE</li>
+                    <li>• FORTE, DETERMINATION studies</li>
+                    <li>• Spanish Myeloma Studies (GEM Dataset)</li>
+                    <li>• Mayo Clinic Cohort analysis</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5 className="text-sm font-medium text-amber-900 mb-2">del(17p) Impact by CCF:</h5>
+                  <ul className="text-xs text-amber-800 space-y-1">
+                    <li>• ≥10%: HR 1.5 (PFS), 2.1 (OS)</li>
+                    <li>• ≥20%: HR 1.9 (PFS), 2.5 (OS)</li>
+                    <li>• ≥40%: HR 2.0 (PFS), 2.6 (OS)</li>
+                    <li>• Higher CCF = worse prognosis</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </CardContent>
