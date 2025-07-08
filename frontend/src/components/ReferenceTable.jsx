@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from './ui/table';
 import { Badge } from './ui/badge';
-import { FileText, AlertTriangle } from 'lucide-react';
+import { FileText, AlertTriangle, TrendingDown } from 'lucide-react';
 
 const ReferenceTable = () => {
   const hrmm2024Data = [
