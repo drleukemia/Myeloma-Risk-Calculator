@@ -164,7 +164,7 @@ const Calculator = () => {
                   <div className="bg-green-50 p-3 rounded-lg">
                     <h5 className="font-medium text-green-900 mb-2">4. High β2M with normal creatinine</h5>
                     <ul className="text-sm text-green-800 space-y-1">
-                      <li>• β2M ≥5.5 mg/L with creatinine <1.2 mg/dL</li>
+                      <li>• β2M ≥5.5 mg/L with creatinine &lt;1.2 mg/dL</li>
                       <li>• Poor prognosis even without other risk features</li>
                       <li>• Mixed data on independent prognostic impact</li>
                       <li>• Must exclude renal dysfunction</li>
