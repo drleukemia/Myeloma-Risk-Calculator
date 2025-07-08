@@ -77,7 +77,7 @@ const ReferenceTable = () => {
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <FileText className="w-5 h-5 text-blue-600" />
-            IMWG 2014 HRMM Definition and Supporting Rationale
+            IMWG 2024 HRMM Definition and Supporting Rationale
           </CardTitle>
         </CardHeader>
         <CardContent>
