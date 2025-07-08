@@ -5,46 +5,46 @@ import { Badge } from './ui/badge';
 import { FileText, AlertTriangle } from 'lucide-react';
 
 const ReferenceTable = () => {
-  const hrmm2014Data = [
+  const hrmm2024Data = [
     {
       factor: "del(17p)",
-      summary: "≥20% (if > 20% present)",
-      supporting: "Del(17p) is a significant poor prognostic factor associated with shorter PFS and OS"
+      summary: "Occurs in 5%-10% of patients with NDMM (CCF ≥20%)",
+      supporting: "Del(17p) is an independent prognostic factor associated with shorter PFS and OS. Can be acquired at later stages. Prevalence higher in patients with RRMM."
     },
     {
-      factor: "TP53",
-      summary: "≥20% (if > 20% present)",
-      supporting: "TP53 mutations are associated with poor prognosis, resistance to therapy, and shorter overall survival"
+      factor: "TP53 mutations",
+      summary: "Occurs in 8%-10% of patients with NDMM. Can be acquired at later stages",
+      supporting: "Biallelic TP53 mutation is an independent prognostic factor associated with shorter PFS and OS. Strong correlation with del(17p)."
     },
     {
       factor: "t(4;14)",
-      summary: "Prognostic impact of translocation may depend on treatment",
-      supporting: "t(4;14) is associated with intermediate to poor prognosis, but impact may be treatment-dependent"
+      summary: "Occurs in 10%-15% of patients with NDMM. High-risk feature in R-ISS",
+      supporting: "t(4;14) is strongly associated with other CAs and adverse risk features, such as hyper-APOBEC signature. Prognostic impact may be treatment-dependent."
     },
     {
       factor: "t(14;16)",
-      summary: "Negative prognostic impact consistently reported",
-      supporting: "t(14;16) is consistently associated with poor prognosis across multiple studies"
+      summary: "Occurs in 2%-5% of patients with NDMM. Consistently poor prognosis",
+      supporting: "t(14;16) has prognostic impact of worse outcomes (worse PFS and/or OS) specifically when co-occurring with +1q or del(1p32)."
     },
     {
       factor: "t(14;20)",
-      summary: "Negative prognostic impact consistently reported",
-      supporting: "t(14;20) is associated with poor prognosis, though less common than other translocations"
+      summary: "Occurs in 2% of patients with NDMM. Co-occurs with other CAs",
+      supporting: "t(14;20) co-occurs with other CAs, including gain(1q) or del(1p32). Associated with poor outcomes."
     },
     {
-      factor: "1q+",
-      summary: "Prognostic impact depends on method of assessment",
-      supporting: "1q+ (gain or amplification) shows prognostic impact, with amplification being more significant"
+      factor: "+1q",
+      summary: "Occurs in 35%-40% of patients with NDMM. Most significant prognostic impact",
+      supporting: "+1q has the most significant prognostic impact on PFS and/or OS when co-occurring with t(14;16), t(4;14), or t(14;20). Makes worse prognosis in terms of PFS and OS."
     },
     {
       factor: "del(1p32)",
-      summary: "Prognostic impact when present with other abnormalities",
-      supporting: "del(1p32) shows prognostic significance, particularly when co-occurring with other abnormalities"
+      summary: "Occurs in 11% of patients with NDMM. Co-occurring with +1q makes worse prognosis",
+      supporting: "Monoallelic del(1p32) co-occurring with +1q, t(4;14), t(14;16), or t(14;20) marks worse prognosis in terms of PFS and OS. Biallelic del(1p32) is an independent prognostic factor for shorter PFS and OS."
     },
     {
       factor: "High β2M",
-      summary: "≥5.5 mg/L with normal creatinine",
-      supporting: "High β2M (≥5.5 mg/L) with normal creatinine is associated with poor prognosis"
+      summary: "β2M ≥5.5 mg/L with normal creatinine (&lt;1.2 mg/dL)",
+      supporting: "Poor prognosis in patients with high β2M with normal renal function, even without any of the above-described high-risk features. Mixed data for independent prognostic impact of isolated high β2M with abnormal renal function."
     }
   ];
 
