@@ -222,30 +222,45 @@ const SurvivalCharts = () => {
             </div>
             
             <div className="space-y-4">
-              <h4 className="font-medium text-gray-900">Key Findings:</h4>
-              <div className="space-y-3">
-                <div className="bg-red-50 p-3 rounded-lg">
-                  <h5 className="font-medium text-red-900">del(17p) Impact</h5>
-                  <ul className="text-sm text-red-800 space-y-1 mt-2">
-                    <li>• Occurs in 5-10% of NDMM patients</li>
-                    <li>• Dose-response relationship with CCF</li>
-                    <li>• Associated with therapy resistance</li>
+              <h4 className="font-medium text-gray-900">Key Findings from IMS-IMWG 2024:</h4>
+              
+              <div className="space-y-4">
+                <div className="bg-red-50 p-4 rounded-lg">
+                  <h5 className="font-medium text-red-900 mb-2">del(17p) and/or TP53 mutation</h5>
+                  <ul className="text-sm text-red-800 space-y-1">
+                    <li>• Occurs in 5%-10% of patients with NDMM</li>
+                    <li>• Can be acquired at later stages</li>
+                    <li>• Prevalence higher in patients with RRMM</li>
+                    <li>• del(17p) is an independent prognostic factor associated with shorter PFS and OS</li>
+                    <li>• Biallelic TP53 mutation is an independent prognostic factor associated with shorter PFS and OS</li>
                   </ul>
                 </div>
-                <div className="bg-orange-50 p-3 rounded-lg">
-                  <h5 className="font-medium text-orange-900">High-Risk Translocations</h5>
-                  <ul className="text-sm text-orange-800 space-y-1 mt-2">
-                    <li>• t(4;14): 10-15% prevalence</li>
-                    <li>• t(14;16): 2-5% prevalence</li>
-                    <li>• Enhanced risk with +1q co-occurrence</li>
+                
+                <div className="bg-orange-50 p-4 rounded-lg">
+                  <h5 className="font-medium text-orange-900 mb-2">High-risk translocations</h5>
+                  <ul className="text-sm text-orange-800 space-y-1">
+                    <li>• <strong>t(4;14):</strong> Occurs in 10%-15% of patients with NDMM. Considered a high-risk feature in R-ISS</li>
+                    <li>• <strong>t(14;16):</strong> Occurs in 2%-5% of patients with NDMM. Consistently poor prognosis</li>
+                    <li>• <strong>t(14;20):</strong> Occurs in 2% of patients with NDMM. Co-occurs with other CAs</li>
+                    <li>• t(14;16), t(14;20), and t(4;14) are prognostic of worse outcomes when co-occurring with +1q or del(1p32)</li>
                   </ul>
                 </div>
-                <div className="bg-blue-50 p-3 rounded-lg">
-                  <h5 className="font-medium text-blue-900">Treatment Implications</h5>
-                  <ul className="text-sm text-blue-800 space-y-1 mt-2">
-                    <li>• High-risk patients need intensive therapy</li>
-                    <li>• Consider novel agent combinations</li>
-                    <li>• Enhanced monitoring required</li>
+                
+                <div className="bg-purple-50 p-4 rounded-lg">
+                  <h5 className="font-medium text-purple-900 mb-2">+1q and del(1p32)</h5>
+                  <ul className="text-sm text-purple-800 space-y-1">
+                    <li>• <strong>+1q:</strong> Occurs in 35%-40% of patients with NDMM. Most significant prognostic impact on PFS and/or OS when co-occurring with t(14;16), t(4;14), or t(14;20)</li>
+                    <li>• <strong>del(1p32):</strong> Occurs in 11% of patients with NDMM. Monoallelic del(1p32) co-occurring with +1q, t(4;14), t(14;16), or t(14;20) marks worse prognosis</li>
+                    <li>• Biallelic del(1p32) is an independent prognostic factor for shorter PFS and OS</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-green-50 p-4 rounded-lg">
+                  <h5 className="font-medium text-green-900 mb-2">High β2M with normal creatinine</h5>
+                  <ul className="text-sm text-green-800 space-y-1">
+                    <li>• High β2M defined as ≥5.5 mg/dL and normal creatinine (&lt;1.2 mg/dL)</li>
+                    <li>• Poor prognosis in patients with high β2M with normal renal function, even without any of the above-described high-risk features</li>
+                    <li>• Mixed data for independent prognostic impact of isolated high β2M with abnormal renal function</li>
                   </ul>
                 </div>
               </div>
