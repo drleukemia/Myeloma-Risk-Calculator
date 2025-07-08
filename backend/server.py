@@ -11,8 +11,8 @@ import uuid
 from datetime import datetime
 
 # Import new modules
-from routes.assessments import router as assessments_router
-from database import init_database, get_database
+from backend.routes.assessments import router as assessments_router
+from backend.database import init_database, get_database
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
