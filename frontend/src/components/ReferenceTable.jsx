@@ -229,7 +229,7 @@ const ReferenceTable = () => {
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <AlertTriangle className="w-5 h-5 text-orange-600" />
-            Current and Potential High-Risk Factors for NDMM
+            Current and Potential High-Risk Features for NDMM
           </CardTitle>
         </CardHeader>
         <CardContent>
@@ -239,8 +239,8 @@ const ReferenceTable = () => {
                 <TableRow>
                   <TableHead>Factor</TableHead>
                   <TableHead>Status</TableHead>
-                  <TableHead className="text-center">High-Risk</TableHead>
-                  <TableHead className="text-center">Ultra-High-Risk</TableHead>
+                  <TableHead className="text-center">Current High-Risk</TableHead>
+                  <TableHead className="text-center">Potential High-Risk</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -252,7 +252,7 @@ const ReferenceTable = () => {
                       </Badge>
                     </TableCell>
                     <TableCell>
-                      <Badge variant="outline" className="text-xs">
+                      <Badge variant={item.status === "Current" ? "default" : "outline"} className="text-xs">
                         {item.status}
                       </Badge>
                     </TableCell>
@@ -262,8 +262,8 @@ const ReferenceTable = () => {
                       )}
                     </TableCell>
                     <TableCell className="text-center">
-                      {item["ultra-high"] && (
-                        <Badge variant="destructive" className="text-xs">✓</Badge>
+                      {item["potential"] && (
+                        <Badge variant="secondary" className="text-xs">✓</Badge>
                       )}
                     </TableCell>
                   </TableRow>
