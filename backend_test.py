@@ -4,6 +4,7 @@ import json
 import time
 import unittest
 import os
+import sys
 from typing import Dict, Any, List, Optional
 
 # Get the backend URL from the frontend .env file
@@ -17,6 +18,15 @@ def get_backend_url():
 # Base URL for API requests
 BASE_URL = f"{get_backend_url()}/api"
 print(f"Using backend URL: {BASE_URL}")
+
+# Test the health endpoint directly
+try:
+    response = requests.get(f"{BASE_URL}/health")
+    print(f"Health check response: {response.status_code}")
+    print(f"Health check data: {response.json()}")
+except Exception as e:
+    print(f"Error checking health endpoint: {e}")
+    sys.exit(1)
 
 class IMWGRiskCalculatorTests(unittest.TestCase):
     """Test suite for IMWG Risk Calculator API"""
