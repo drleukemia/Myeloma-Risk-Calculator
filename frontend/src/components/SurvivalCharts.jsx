@@ -144,37 +144,97 @@ const SurvivalCharts = () => {
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
-              {/* Simulated Survival Curve Visual */}
-              <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-6 h-64 flex flex-col justify-between">
-                <div className="text-xs text-gray-600 mb-2">Survival Probability</div>
-                <div className="flex-1 relative">
-                  {/* Standard Risk Curve */}
-                  <div className="absolute top-2 left-0 w-full h-1">
-                    <div className="w-full h-full bg-gradient-to-r from-green-500 via-green-400 to-green-300 rounded"></div>
+              {/* Actual Kaplan-Meier Style Curve */}
+              <div className="bg-white rounded-lg border p-6 h-80 relative">
+                {/* Y-axis */}
+                <div className="absolute left-2 top-4 bottom-16 w-8 flex flex-col justify-between text-xs text-gray-600">
+                  <span>1.0</span>
+                  <span>0.8</span>
+                  <span>0.6</span>
+                  <span>0.4</span>
+                  <span>0.2</span>
+                  <span>0.0</span>
+                </div>
+                
+                {/* Chart area */}
+                <div className="ml-10 mr-4 mt-4 mb-16 h-full relative bg-gray-50 border">
+                  {/* Grid lines */}
+                  <div className="absolute inset-0">
+                    {[0, 20, 40, 60, 80].map(pct => (
+                      <div key={pct} className="absolute border-b border-gray-200" 
+                           style={{bottom: `${pct}%`, width: '100%'}}></div>
+                    ))}
+                    {[0, 25, 50, 75, 100].map(pct => (
+                      <div key={pct} className="absolute border-r border-gray-200 h-full" 
+                           style={{left: `${pct}%`}}></div>
+                    ))}
                   </div>
-                  <div className="absolute top-1 left-0 text-xs text-green-700 font-medium">Standard Risk</div>
                   
-                  {/* High Risk Curve */}
-                  <div className="absolute top-20 left-0 w-3/4 h-1">
-                    <div className="w-full h-full bg-gradient-to-r from-red-500 via-red-400 to-red-300 rounded"></div>
-                  </div>
-                  <div className="absolute top-19 left-0 text-xs text-red-700 font-medium">High Risk</div>
+                  {/* Standard Risk Curve (Higher, better survival) */}
+                  <svg className="absolute inset-0 w-full h-full">
+                    <path
+                      d="M 0 10 L 50 15 L 100 20 L 150 25 L 200 30 L 250 35 L 300 45"
+                      stroke="#10b981"
+                      strokeWidth="3"
+                      fill="none"
+                      className="drop-shadow-sm"
+                    />
+                  </svg>
                   
-                  {/* Survival Stats */}
-                  <div className="absolute bottom-8 left-0 right-0 grid grid-cols-2 gap-4 text-xs">
-                    <div className="bg-white/80 p-2 rounded border">
-                      <div className="font-medium text-green-700">Standard Risk</div>
-                      <div>5-year OS: ~85%</div>
-                      <div>Median: Not reached</div>
+                  {/* High Risk Curve (Lower, worse survival) */}
+                  <svg className="absolute inset-0 w-full h-full">
+                    <path
+                      d="M 0 10 L 30 25 L 60 45 L 100 65 L 150 85 L 200 105 L 250 125 L 300 145"
+                      stroke="#ef4444"
+                      strokeWidth="3"
+                      fill="none"
+                      className="drop-shadow-sm"
+                    />
+                  </svg>
+                  
+                  {/* Legend */}
+                  <div className="absolute top-4 right-4 bg-white/90 border rounded p-3 text-xs">
+                    <div className="flex items-center gap-2 mb-1">
+                      <div className="w-4 h-0.5 bg-green-500"></div>
+                      <span>Standard Risk</span>
                     </div>
-                    <div className="bg-white/80 p-2 rounded border">
-                      <div className="font-medium text-red-700">High Risk</div>
-                      <div>5-year OS: ~45%</div>
-                      <div>Median: 48 months</div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-4 h-0.5 bg-red-500"></div>
+                      <span>High Risk</span>
                     </div>
                   </div>
                 </div>
-                <div className="text-xs text-gray-600 mt-2">Time (Months)</div>
+                
+                {/* X-axis */}
+                <div className="absolute bottom-2 left-10 right-4 h-8 flex justify-between items-end text-xs text-gray-600">
+                  <span>0</span>
+                  <span>24</span>
+                  <span>48</span>
+                  <span>72</span>
+                  <span>96</span>
+                </div>
+                
+                {/* Axis labels */}
+                <div className="absolute left-1 top-1/2 -rotate-90 text-xs text-gray-700 font-medium">
+                  Survival Probability
+                </div>
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 text-xs text-gray-700 font-medium">
+                  Time (Months)
+                </div>
+              </div>
+              
+              {/* Statistics */}
+              <div className="grid grid-cols-2 gap-4 text-sm">
+                <div className="bg-green-50 p-3 rounded border-l-4 border-green-500">
+                  <div className="font-medium text-green-900">Standard Risk</div>
+                  <div className="text-green-800">5-year OS: ~85%</div>
+                  <div className="text-green-800">Median: Not reached</div>
+                </div>
+                <div className="bg-red-50 p-3 rounded border-l-4 border-red-500">
+                  <div className="font-medium text-red-900">High Risk</div>
+                  <div className="text-red-800">5-year OS: ~45%</div>
+                  <div className="text-red-800">Median: 48 months</div>
+                </div>
               </div>
             </div>
           </CardContent>
@@ -190,37 +250,97 @@ const SurvivalCharts = () => {
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
-              {/* Simulated PFS Curve Visual */}
-              <div className="bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg p-6 h-64 flex flex-col justify-between">
-                <div className="text-xs text-gray-600 mb-2">Progression-Free Probability</div>
-                <div className="flex-1 relative">
+              {/* Actual Kaplan-Meier Style PFS Curve */}
+              <div className="bg-white rounded-lg border p-6 h-80 relative">
+                {/* Y-axis */}
+                <div className="absolute left-2 top-4 bottom-16 w-8 flex flex-col justify-between text-xs text-gray-600">
+                  <span>1.0</span>
+                  <span>0.8</span>
+                  <span>0.6</span>
+                  <span>0.4</span>
+                  <span>0.2</span>
+                  <span>0.0</span>
+                </div>
+                
+                {/* Chart area */}
+                <div className="ml-10 mr-4 mt-4 mb-16 h-full relative bg-gray-50 border">
+                  {/* Grid lines */}
+                  <div className="absolute inset-0">
+                    {[0, 20, 40, 60, 80].map(pct => (
+                      <div key={pct} className="absolute border-b border-gray-200" 
+                           style={{bottom: `${pct}%`, width: '100%'}}></div>
+                    ))}
+                    {[0, 25, 50, 75, 100].map(pct => (
+                      <div key={pct} className="absolute border-r border-gray-200 h-full" 
+                           style={{left: `${pct}%`}}></div>
+                    ))}
+                  </div>
+                  
                   {/* Standard Risk PFS Curve */}
-                  <div className="absolute top-2 left-0 w-5/6 h-1">
-                    <div className="w-full h-full bg-gradient-to-r from-blue-500 via-blue-400 to-blue-300 rounded"></div>
-                  </div>
-                  <div className="absolute top-1 left-0 text-xs text-blue-700 font-medium">Standard Risk</div>
+                  <svg className="absolute inset-0 w-full h-full">
+                    <path
+                      d="M 0 10 L 40 20 L 80 35 L 120 50 L 160 70 L 200 90 L 240 110 L 280 130"
+                      stroke="#3b82f6"
+                      strokeWidth="3"
+                      fill="none"
+                      className="drop-shadow-sm"
+                    />
+                  </svg>
                   
-                  {/* High Risk PFS Curve */}
-                  <div className="absolute top-16 left-0 w-1/2 h-1">
-                    <div className="w-full h-full bg-gradient-to-r from-orange-500 via-orange-400 to-orange-300 rounded"></div>
-                  </div>
-                  <div className="absolute top-15 left-0 text-xs text-orange-700 font-medium">High Risk</div>
+                  {/* High Risk PFS Curve (Steeper decline) */}
+                  <svg className="absolute inset-0 w-full h-full">
+                    <path
+                      d="M 0 10 L 20 30 L 40 55 L 80 85 L 120 115 L 160 140 L 200 160 L 240 175"
+                      stroke="#f97316"
+                      strokeWidth="3"
+                      fill="none"
+                      className="drop-shadow-sm"
+                    />
+                  </svg>
                   
-                  {/* PFS Stats */}
-                  <div className="absolute bottom-8 left-0 right-0 grid grid-cols-2 gap-4 text-xs">
-                    <div className="bg-white/80 p-2 rounded border">
-                      <div className="font-medium text-blue-700">Standard Risk</div>
-                      <div>Median PFS: 42 months</div>
-                      <div>Better outcomes</div>
+                  {/* Legend */}
+                  <div className="absolute top-4 right-4 bg-white/90 border rounded p-3 text-xs">
+                    <div className="flex items-center gap-2 mb-1">
+                      <div className="w-4 h-0.5 bg-blue-500"></div>
+                      <span>Standard Risk</span>
                     </div>
-                    <div className="bg-white/80 p-2 rounded border">
-                      <div className="font-medium text-orange-700">High Risk</div>
-                      <div>Median PFS: 24 months</div>
-                      <div>Requires intensive therapy</div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-4 h-0.5 bg-orange-500"></div>
+                      <span>High Risk</span>
                     </div>
                   </div>
                 </div>
-                <div className="text-xs text-gray-600 mt-2">Time (Months)</div>
+                
+                {/* X-axis */}
+                <div className="absolute bottom-2 left-10 right-4 h-8 flex justify-between items-end text-xs text-gray-600">
+                  <span>0</span>
+                  <span>12</span>
+                  <span>24</span>
+                  <span>36</span>
+                  <span>48</span>
+                </div>
+                
+                {/* Axis labels */}
+                <div className="absolute left-1 top-1/2 -rotate-90 text-xs text-gray-700 font-medium">
+                  PFS Probability
+                </div>
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 text-xs text-gray-700 font-medium">
+                  Time (Months)
+                </div>
+              </div>
+              
+              {/* PFS Statistics */}
+              <div className="grid grid-cols-2 gap-4 text-sm">
+                <div className="bg-blue-50 p-3 rounded border-l-4 border-blue-500">
+                  <div className="font-medium text-blue-900">Standard Risk</div>
+                  <div className="text-blue-800">Median PFS: 42 months</div>
+                  <div className="text-blue-800">Better outcomes</div>
+                </div>
+                <div className="bg-orange-50 p-3 rounded border-l-4 border-orange-500">
+                  <div className="font-medium text-orange-900">High Risk</div>
+                  <div className="text-orange-800">Median PFS: 24 months</div>
+                  <div className="text-orange-800">Requires intensive therapy</div>
+                </div>
               </div>
             </div>
           </CardContent>
