@@ -4,7 +4,7 @@ from typing import List, Optional
 from datetime import datetime
 import os
 
-from models.patient_assessment import (
+from backend.models.patient_assessment import (
     PatientAssessment,
     PatientAssessmentCreate,
     PatientAssessmentUpdate,
@@ -13,8 +13,8 @@ from models.patient_assessment import (
     AssessmentHistory,
     AssessmentStatus
 )
-from services.risk_calculator import IMWGRiskCalculator
-from database import get_database
+from backend.services.risk_calculator import IMWGRiskCalculator
+from backend.database import get_database
 
 router = APIRouter(prefix="/assessments", tags=["assessments"])
 
