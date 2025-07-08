@@ -1,5 +1,5 @@
 from typing import List, Tuple
-from models.patient_assessment import PatientAssessment, RiskResult, RiskFactor, RiskCalculationResult
+from backend.models.patient_assessment import PatientAssessment, RiskResult, RiskFactor, RiskCalculationResult
 from datetime import datetime
 
 class IMWGRiskCalculator:
