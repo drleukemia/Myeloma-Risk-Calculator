@@ -326,7 +326,7 @@ const SurvivalCharts = () => {
                 <h4 className="font-medium text-blue-900 mb-2">Laboratory Requirements:</h4>
                 <ul className="text-sm text-blue-800 space-y-1">
                   <li>• Fresh bone marrow samples</li>
-                  <li>• Plasma cell percentage >10%</li>
+                  <li>• Plasma cell percentage &gt;10%</li>
                   <li>• Quality control measures</li>
                   <li>• Standardized reporting</li>
                 </ul>
