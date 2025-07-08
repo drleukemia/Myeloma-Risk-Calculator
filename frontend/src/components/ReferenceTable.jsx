@@ -72,6 +72,113 @@ const ReferenceTable = () => {
         </p>
       </div>
 
+      {/* Survival Outcomes Table */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            <TrendingDown className="w-5 h-5 text-red-600" />
+            Impact of del(17p) CCF on Survival Outcomes
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="overflow-x-auto">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>CCF Cutoff</TableHead>
+                  <TableHead>Patients (%)</TableHead>
+                  <TableHead>Median PFS (months)</TableHead>
+                  <TableHead>HR for PFS</TableHead>
+                  <TableHead>Median OS (months)</TableHead>
+                  <TableHead>HR for OS</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                <TableRow>
+                  <TableCell className="font-medium">≥10%</TableCell>
+                  <TableCell>134 (11.8%)</TableCell>
+                  <TableCell>27.3</TableCell>
+                  <TableCell>1.5 (1.2-1.9)</TableCell>
+                  <TableCell>54.2</TableCell>
+                  <TableCell>2.1 (1.6-2.7)</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-medium">≥20%</TableCell>
+                  <TableCell>89 (7.7%)</TableCell>
+                  <TableCell>23.9</TableCell>
+                  <TableCell>1.9 (1.5-2.4)</TableCell>
+                  <TableCell>37.0</TableCell>
+                  <TableCell>2.5 (1.9-3.3)</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-medium">≥30%</TableCell>
+                  <TableCell>70 (6.2%)</TableCell>
+                  <TableCell>22.0</TableCell>
+                  <TableCell>1.9 (1.4-2.5)</TableCell>
+                  <TableCell>38.1</TableCell>
+                  <TableCell>2.5 (1.8-3.3)</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-medium">≥40%</TableCell>
+                  <TableCell>60 (5.3%)</TableCell>
+                  <TableCell>21.0</TableCell>
+                  <TableCell>2.0 (1.5-2.7)</TableCell>
+                  <TableCell>32.5</TableCell>
+                  <TableCell>2.6 (1.9-3.6)</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-medium">≥50%</TableCell>
+                  <TableCell>54 (4.8%)</TableCell>
+                  <TableCell>20.2</TableCell>
+                  <TableCell>2.0 (1.5-2.7)</TableCell>
+                  <TableCell>32.5</TableCell>
+                  <TableCell>2.6 (1.8-3.6)</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-medium">≥60%</TableCell>
+                  <TableCell>41 (3.6%)</TableCell>
+                  <TableCell>21.0</TableCell>
+                  <TableCell>2.0 (1.4-2.9)</TableCell>
+                  <TableCell>38.1</TableCell>
+                  <TableCell>2.3 (1.5-3.4)</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-medium">≥70%</TableCell>
+                  <TableCell>34 (3.0%)</TableCell>
+                  <TableCell>18.8</TableCell>
+                  <TableCell>2.0 (1.4-2.9)</TableCell>
+                  <TableCell>38.1</TableCell>
+                  <TableCell>2.3 (1.5-3.5)</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-medium">≥80%</TableCell>
+                  <TableCell>23 (1.9%)</TableCell>
+                  <TableCell>13.8</TableCell>
+                  <TableCell>2.3 (1.5-3.7)</TableCell>
+                  <TableCell>45.6</TableCell>
+                  <TableCell>2.2 (1.3-3.7)</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-medium">≥90%</TableCell>
+                  <TableCell>13 (1.1%)</TableCell>
+                  <TableCell>8.4</TableCell>
+                  <TableCell>3.6 (2.1-6.7)</TableCell>
+                  <TableCell>31.2</TableCell>
+                  <TableCell>2.8 (1.5-5.4)</TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </div>
+          <div className="mt-4 p-3 bg-red-50 rounded-lg">
+            <p className="text-sm text-red-800">
+              <strong>Note:</strong> Data from Spanish Myeloma Studies (GEM Dataset) showing dose-response 
+              relationship between del(17p) cancer clonal fraction and survival outcomes. Higher CCF correlates 
+              with worse prognosis for both PFS and OS.
+            </p>
+          </div>
+        </CardContent>
+      </Card>
+
       {/* HRMM 2014 Definition Table */}
       <Card>
         <CardHeader>
