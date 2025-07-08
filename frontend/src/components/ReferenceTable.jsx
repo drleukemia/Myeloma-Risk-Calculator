@@ -469,7 +469,7 @@ const ReferenceTable = () => {
         </CardContent>
       </Card>
 
-      {/* Current and Potential Risk Factors */}
+      {/* Supplementary Table 4 - Risk Stratification Systems Comparison */}
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
@@ -482,39 +482,40 @@ const ReferenceTable = () => {
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Factor</TableHead>
-                  <TableHead>Status</TableHead>
-                  <TableHead className="text-center">Current High-Risk</TableHead>
-                  <TableHead className="text-center">Potential High-Risk</TableHead>
+                  <TableHead className="w-32">Feature</TableHead>
+                  <TableHead className="text-center text-xs">ISS (2005)</TableHead>
+                  <TableHead className="text-center text-xs">IMWG (2014)</TableHead>
+                  <TableHead className="text-center text-xs">R-ISS (2015)</TableHead>
+                  <TableHead className="text-center text-xs">R2-ISS (2022)</TableHead>
+                  <TableHead className="text-center text-xs">mSMART (2013)</TableHead>
+                  <TableHead className="text-center text-xs">MGP (2019-21)</TableHead>
+                  <TableHead className="text-center text-xs">IFM CPI (2019)</TableHead>
+                  <TableHead className="text-center text-xs bg-blue-100">IMS-IMWG (2024)</TableHead>
+                  <TableHead className="text-center text-xs">Potential/Future</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {currentPotentialFactors.map((item, index) => (
+                {supplementaryTable4Data.map((item, index) => (
                   <TableRow key={index}>
-                    <TableCell className="font-medium">
-                      <Badge variant="secondary" className="text-xs">
-                        {item.factor}
-                      </Badge>
+                    <TableCell className="font-medium text-sm">
+                      {item.feature}
                     </TableCell>
-                    <TableCell>
-                      <Badge variant={item.status === "Current" ? "default" : "outline"} className="text-xs">
-                        {item.status}
-                      </Badge>
-                    </TableCell>
-                    <TableCell className="text-center">
-                      {item["high-risk"] && (
-                        <Badge variant="destructive" className="text-xs">✓</Badge>
-                      )}
-                    </TableCell>
-                    <TableCell className="text-center">
-                      {item["potential"] && (
-                        <Badge variant="secondary" className="text-xs">✓</Badge>
-                      )}
-                    </TableCell>
+                    <TableCell className="text-center text-xs">{item.iss2005}</TableCell>
+                    <TableCell className="text-center text-xs">{item.imwg2014}</TableCell>
+                    <TableCell className="text-center text-xs">{item.riss2015}</TableCell>
+                    <TableCell className="text-center text-xs">{item.r2iss2022}</TableCell>
+                    <TableCell className="text-center text-xs">{item.msmart2013}</TableCell>
+                    <TableCell className="text-center text-xs">{item.mgp201921}</TableCell>
+                    <TableCell className="text-center text-xs">{item.ifmcpi2019}</TableCell>
+                    <TableCell className="text-center text-xs bg-blue-50 font-medium">{item.imsimwg2024}</TableCell>
+                    <TableCell className="text-center text-xs">{item.potentialFuture}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>
             </Table>
+          </div>
+          <div className="mt-4 text-xs text-gray-600">
+            <p><strong>Abbreviations:</strong> β2M, β2 microglobulin; Chr, chromosome; CPI, cytogenetic prognostic index; CTC, circulating tumor cell; EMD, extramedullary disease; GEP, gene expression profiling; HRCA, high-risk cytogenetic abnormality; Hyper-APOBEC, high apolipoprotein B mRNA editing enzyme, catalytic polypeptide-type mutational signature; IFM, Intergroupe Francophone du Myélome; IMS, International Myeloma Society; IMWG, International Myeloma Working Group; ISS, International Staging System; LDH, lactate dehydrogenase; MGP, Myeloma Genome Project; mSMART, Stratification for Myeloma and Risk-Adapted Therapy; R-ISS, Revised International Staging System; R2-ISS, Second Revision of the International Staging System; TSG, tumor suppressor gene.</p>
           </div>
         </CardContent>
       </Card>
