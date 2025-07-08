@@ -49,16 +49,25 @@ const ReferenceTable = () => {
   ];
 
   const currentPotentialFactors = [
-    { factor: "TP53", status: "Current", "high-risk": "✓", "ultra-high": "✓" },
-    { factor: "del(17p)", status: "Current", "high-risk": "✓", "ultra-high": "✓" },
-    { factor: "t(4;14)", status: "Current", "high-risk": "✓", "ultra-high": "" },
-    { factor: "t(14;16)", status: "Current", "high-risk": "✓", "ultra-high": "✓" },
-    { factor: "t(14;20)", status: "Current", "high-risk": "✓", "ultra-high": "✓" },
-    { factor: "1q+", status: "Current", "high-risk": "✓", "ultra-high": "" },
-    { factor: "del(1p32)", status: "Current", "high-risk": "✓", "ultra-high": "" },
-    { factor: "del(1p32) co-occurring", status: "Current", "high-risk": "✓", "ultra-high": "" },
-    { factor: "Biallelic del(1p32)", status: "Current", "high-risk": "✓", "ultra-high": "" },
-    { factor: "High β2M", status: "Current", "high-risk": "✓", "ultra-high": "" }
+    { factor: "TP53", status: "Current", "high-risk": "✓", "potential": "" },
+    { factor: "del(17p)", status: "Current", "high-risk": "✓", "potential": "" },
+    { factor: "t(4;14)", status: "Current", "high-risk": "✓", "potential": "" },
+    { factor: "t(14;16)", status: "Current", "high-risk": "✓", "potential": "" },
+    { factor: "t(14;20)", status: "Current", "high-risk": "✓", "potential": "" },
+    { factor: "1q+", status: "Current", "high-risk": "✓", "potential": "" },
+    { factor: "del(1p32)", status: "Current", "high-risk": "✓", "potential": "" },
+    { factor: "del(1p32) co-occurring", status: "Current", "high-risk": "✓", "potential": "" },
+    { factor: "Biallelic del(1p32)", status: "Current", "high-risk": "✓", "potential": "" },
+    { factor: "High β2M", status: "Current", "high-risk": "✓", "potential": "" },
+    { factor: "CKS1B gain", status: "Potential", "high-risk": "", "potential": "✓" },
+    { factor: "CKS1B-APOBEC signature", status: "Potential", "high-risk": "", "potential": "✓" },
+    { factor: "TP53 pathway (Mutation and/or del)", status: "Potential", "high-risk": "", "potential": "✓" },
+    { factor: "Immune profile", status: "Potential", "high-risk": "", "potential": "✓" },
+    { factor: "Proliferation index", status: "Potential", "high-risk": "", "potential": "✓" },
+    { factor: "Response to induction Δ (10%)", status: "Potential", "high-risk": "", "potential": "✓" },
+    { factor: "Response to induction Δ (20%)", status: "Potential", "high-risk": "", "potential": "✓" },
+    { factor: "Response to induction Δ (40%)", status: "Potential", "high-risk": "", "potential": "✓" },
+    { factor: "cfDNA", status: "Potential", "high-risk": "", "potential": "✓" }
   ];
 
   return (
