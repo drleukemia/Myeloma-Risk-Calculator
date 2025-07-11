@@ -56,6 +56,10 @@ const Home = () => {
             <Calculator />
           </TabsContent>
 
+          <TabsContent value="riss" className="space-y-6">
+            <RISSCalculator />
+          </TabsContent>
+
           <TabsContent value="survival" className="space-y-6">
             <SurvivalCharts />
           </TabsContent>
@@ -64,6 +68,9 @@ const Home = () => {
             <ReferenceTable />
           </TabsContent>
         </Tabs>
+
+        {/* Creator Credits */}
+        <CreatorCredits />
 
         {/* Footer */}
         <div className="mt-16 text-center">
