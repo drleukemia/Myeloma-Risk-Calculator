@@ -3,9 +3,11 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./components/ui/tabs";
 import Calculator from "./components/Calculator";
+import RISSCalculator from "./components/RISSCalculator";
 import SurvivalCharts from "./components/SurvivalCharts";
 import ReferenceTable from "./components/ReferenceTable";
-import { Calculator as CalculatorIcon, TrendingUp, FileText, Info } from "lucide-react";
+import CreatorCredits from "./components/CreatorCredits";
+import { Calculator as CalculatorIcon, TrendingUp, FileText, Info, BarChart3 } from "lucide-react";
 
 const Home = () => {
   return (
