@@ -31,10 +31,14 @@ const Home = () => {
 
         {/* Navigation Tabs */}
         <Tabs defaultValue="calculator" className="w-full">
-          <TabsList className="grid w-full grid-cols-3 mb-8">
+          <TabsList className="grid w-full grid-cols-4 mb-8">
             <TabsTrigger value="calculator" className="flex items-center gap-2">
               <CalculatorIcon className="w-4 h-4" />
-              Calculator
+              IMWG Risk
+            </TabsTrigger>
+            <TabsTrigger value="riss" className="flex items-center gap-2">
+              <BarChart3 className="w-4 h-4" />
+              R-ISS Staging
             </TabsTrigger>
             <TabsTrigger value="survival" className="flex items-center gap-2">
               <TrendingUp className="w-4 h-4" />
