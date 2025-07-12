@@ -198,7 +198,7 @@ const CreatorCredits = () => {
       {/* Footer */}
       <div className="text-center text-xs text-gray-500 pt-6 border-t">
         <p>
-          © 2024 Dr. [Your Name]. Made with ❤️ for the global medical community. 
+          © 2024 Dr. Ankit Kansagra. Made with ❤️ for the global medical community. 
           This tool is provided free of charge for educational purposes.
         </p>
         <p className="mt-1">
