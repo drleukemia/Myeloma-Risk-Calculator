@@ -34,14 +34,16 @@ const CreatorCredits = () => {
           
           <div className="flex justify-center gap-4 mt-4">
             <a 
-              href="mailto:your-email@example.com" 
+              href="https://www.linkedin.com/in/drankitkansagra/" 
+              target="_blank" 
+              rel="noopener noreferrer"
               className="flex items-center gap-2 text-blue-600 hover:text-blue-800 text-sm"
             >
-              <Mail className="w-4 h-4" />
-              Contact
+              <Linkedin className="w-4 h-4" />
+              LinkedIn Profile
             </a>
             <a 
-              href="https://github.com/yourusername" 
+              href="https://github.com/ankitkansagra" 
               target="_blank" 
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-blue-600 hover:text-blue-800 text-sm"
