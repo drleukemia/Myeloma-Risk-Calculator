@@ -17,7 +17,7 @@ const CreatorCredits = () => {
         </CardHeader>
         <CardContent className="text-center space-y-4">
           <div className="space-y-2">
-            <h3 className="text-xl font-semibold text-gray-900">Dr. [Your Name]</h3>
+            <h3 className="text-xl font-semibold text-gray-900">Dr. Ankit Kansagra</h3>
             <p className="text-gray-600">Creator & Developer</p>
             <div className="flex justify-center gap-4 text-sm">
               <Badge variant="outline" className="bg-white">Physician</Badge>
