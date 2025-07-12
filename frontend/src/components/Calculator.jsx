@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
 import { RadioGroup, RadioGroupItem } from './ui/radio-group';
@@ -6,11 +7,12 @@ import { Label } from './ui/label';
 import { Input } from './ui/input';
 import { Badge } from './ui/badge';
 import { Separator } from './ui/separator';
-import { AlertCircle, CheckCircle, Info } from 'lucide-react';
+import { AlertCircle, CheckCircle, Info, Loader2 } from 'lucide-react';
 import { Alert, AlertDescription } from './ui/alert';
 
 const Calculator = () => {
   const [formData, setFormData] = useState({
+    patient_name: '',
     del17p_tp53: '',
     translocation_combo: '',
     del1p32_1q: '',
@@ -20,6 +22,8 @@ const Calculator = () => {
 
   const [result, setResult] = useState(null);
   const [showEducation, setShowEducation] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const handleInputChange = (field, value) => {
     setFormData(prev => ({
@@ -28,43 +32,52 @@ const Calculator = () => {
     }));
   };
 
-  const calculateRisk = () => {
-    let riskFactors = [];
+  const calculateRisk = async () => {
+    setLoading(true);
+    setError(null);
     
-    // Criterion 1: del(17p) and/or TP53 mutation
-    if (formData.del17p_tp53 === 'positive') {
-      riskFactors.push('del(17p) and/or TP53 mutation');
+    try {
+      // First create an assessment
+      const assessmentData = {
+        patient_name: formData.patient_name || 'Anonymous Patient',
+        del17p_tp53: formData.del17p_tp53,
+        translocation_combo: formData.translocation_combo,
+        del1p32_1q: formData.del1p32_1q,
+        b2m_value: formData.b2m_value ? parseFloat(formData.b2m_value) : null,
+        creatinine_value: formData.creatinine_value ? parseFloat(formData.creatinine_value) : null,
+        physician_name: 'IMWG Calculator User',
+        institution: 'Web Application'
+      };
+      
+      const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8001';
+      
+      // Create assessment
+      const createResponse = await axios.post(`${backendUrl}/api/assessments/`, assessmentData);
+      const assessmentId = createResponse.data.id;
+      
+      // Calculate risk
+      const riskResponse = await axios.post(`${backendUrl}/api/assessments/${assessmentId}/calculate`);
+      const riskResult = riskResponse.data;
+      
+      setResult({
+        risk: riskResult.risk_result === 'HIGH_RISK' ? 'HIGH RISK' : 'STANDARD RISK',
+        riskFactors: riskResult.risk_factors.map(factor => factor.criterion),
+        isHighRisk: riskResult.risk_result === 'HIGH_RISK',
+        clinicalInterpretation: riskResult.clinical_interpretation,
+        recommendations: riskResult.recommendations
+      });
+      
+    } catch (err) {
+      console.error('Error calculating risk:', err);
+      setError('Failed to calculate risk. Please check your inputs and try again.');
+    } finally {
+      setLoading(false);
     }
-    
-    // Criterion 2: Translocation with 1q+ and/or del(1p32)
-    if (formData.translocation_combo === 'positive') {
-      riskFactors.push('High-risk translocation with 1q+ and/or del(1p32)');
-    }
-    
-    // Criterion 3: del(1p32) patterns
-    if (formData.del1p32_1q === 'positive') {
-      riskFactors.push('del(1p32) with 1q+ or biallelic del(1p32)');
-    }
-    
-    // Criterion 4: High β2M with normal creatinine
-    const b2m = parseFloat(formData.b2m_value);
-    const creatinine = parseFloat(formData.creatinine_value);
-    
-    if (b2m >= 5.5 && creatinine < 1.2) {
-      riskFactors.push('High β2-microglobulin (≥5.5 mg/L) with normal creatinine');
-    }
-    
-    const isHighRisk = riskFactors.length > 0;
-    
-    setResult({
-      risk: isHighRisk ? 'HIGH RISK' : 'STANDARD RISK',
-      riskFactors: riskFactors,
-      isHighRisk: isHighRisk
-    });
   };
 
   const resetCalculator = () => {
     setFormData({
+      patient_name: '',
       del17p_tp53: '',
       translocation_combo: '',
       del1p32_1q: '',
@@ -72,6 +85,11 @@ const Calculator = () => {
       creatinine_value: ''
     });
     setResult(null);
+    setError(null);
+  };
+
+  const isFormValid = () => {
+    return formData.del17p_tp53 && formData.translocation_combo && formData.del1p32_1q;
   };
 
   return (
@@ -210,6 +228,19 @@ const Calculator = () => {
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-6">
+          {/* Patient Information */}
+          <div className="space-y-2">
+            <Label htmlFor="patient_name">Patient Name (Optional)</Label>
+            <Input
+              id="patient_name"
+              placeholder="Enter patient name"
+              value={formData.patient_name}
+              onChange={(e) => handleInputChange('patient_name', e.target.value)}
+            />
+          </div>
+
+          <Separator />
+
           {/* Criterion 1 */}
           <div className="space-y-3">
             <Label className="text-base font-medium">
@@ -325,9 +356,17 @@ const Calculator = () => {
           <div className="flex gap-4">
             <Button 
               onClick={calculateRisk}
+              disabled={!isFormValid() || loading}
               className="flex-1 bg-blue-600 hover:bg-blue-700"
             >
-              Calculate Risk
+              {loading ? (
+                <>
+                  <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                  Calculating...
+                </>
+              ) : (
+                "Calculate Risk"
+              )}
             </Button>
             <Button 
               onClick={resetCalculator}
@@ -339,6 +378,16 @@ const Calculator = () => {
           </div>
         </CardContent>
       </Card>
+
+      {/* Error Display */}
+      {error && (
+        <Alert className="border-red-200 bg-red-50">
+          <AlertCircle className="h-4 w-4 text-red-600" />
+          <AlertDescription className="text-red-800">
+            {error}
+          </AlertDescription>
+        </Alert>
+      )}
 
       {/* Results */}
       {result && (
@@ -386,6 +435,27 @@ const Calculator = () => {
                 }
               </AlertDescription>
             </Alert>
+            
+            {result.clinicalInterpretation && (
+              <div className="bg-white p-4 rounded-lg">
+                <h4 className="font-medium text-gray-900 mb-2">Clinical Interpretation:</h4>
+                <p className="text-sm text-gray-700 whitespace-pre-line">{result.clinicalInterpretation}</p>
+              </div>
+            )}
+            
+            {result.recommendations && result.recommendations.length > 0 && (
+              <div className="bg-white p-4 rounded-lg">
+                <h4 className="font-medium text-gray-900 mb-2">Clinical Recommendations:</h4>
+                <ul className="text-sm text-gray-700 space-y-1">
+                  {result.recommendations.map((rec, index) => (
+                    <li key={index} className="flex items-start gap-2">
+                      <span className="w-2 h-2 bg-blue-500 rounded-full mt-1.5 flex-shrink-0"></span>
+                      <span>{rec}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </CardContent>
         </Card>
       )}
