@@ -173,14 +173,16 @@ const CreatorCredits = () => {
             </p>
             <div className="flex justify-center gap-6 text-sm">
               <a 
-                href="mailto:your-email@example.com?subject=IMWG Calculator Feedback" 
+                href="https://www.linkedin.com/in/drankitkansagra/" 
+                target="_blank" 
+                rel="noopener noreferrer"
                 className="flex items-center gap-2 text-blue-600 hover:text-blue-800"
               >
-                <Mail className="w-4 h-4" />
-                Send Feedback
+                <Linkedin className="w-4 h-4" />
+                Send Message
               </a>
               <a 
-                href="https://github.com/yourusername/imwg-calculator" 
+                href="https://github.com/ankitkansagra/imwg-calculator" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-blue-600 hover:text-blue-800"
