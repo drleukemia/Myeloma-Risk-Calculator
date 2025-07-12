@@ -1,0 +1,28 @@
+{
+  "name": "imwg-risk-calculator",
+  "version": "1.0.0",
+  "description": "IMWG Risk Calculator for Multiple Myeloma - A comprehensive risk assessment tool for healthcare professionals",
+  "main": "server.py",
+  "scripts": {
+    "start": "uvicorn server:app --host 0.0.0.0 --port $PORT",
+    "dev": "uvicorn server:app --reload --host 0.0.0.0 --port 8001"
+  },
+  "keywords": [
+    "multiple-myeloma",
+    "imwg",
+    "risk-calculator",
+    "medical",
+    "healthcare",
+    "r-iss",
+    "oncology"
+  ],
+  "author": "Dr. Ankit Kansagra",
+  "license": "Educational Use",
+  "dependencies": {
+    "fastapi": "^0.110.1",
+    "uvicorn": "^0.25.0",
+    "motor": "^3.3.1",
+    "pydantic": "^2.6.4",
+    "python-dotenv": "^1.0.1"
+  }
+}
