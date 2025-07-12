@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Badge } from './ui/badge';
-import { Heart, Users, Shield, AlertTriangle, ExternalLink, Mail, Github } from 'lucide-react';
+import { Heart, Users, Shield, AlertTriangle, ExternalLink, Linkedin, Github } from 'lucide-react';
 import { Alert, AlertDescription } from './ui/alert';
 
 const CreatorCredits = () => {
